@@ -1,8 +1,5 @@
 name: Multiplatform Build & Upload Artifacts
 on:
-  push:
-    branches:
-      [ master ]
   pull_request:
     branches:
       [ master ]
