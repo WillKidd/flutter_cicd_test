@@ -15,6 +15,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-java@v2
+    - with:
+        distribution: 'zulu'
+        java-version: '16'
+    - uses: dart-lang/setup-dart@master
+    - with:
+        sdk: 'stable'
     - uses: subosito/flutter-action@v2
     - run: flutter pub get
     - run: flutter test
