@@ -1,6 +1,6 @@
 name: Test Java
 on:
-  repository_dispatch:
+  workflow_dispatch:
 
 jobs:
   test-java:
