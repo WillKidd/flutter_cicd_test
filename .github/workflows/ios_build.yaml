@@ -1,0 +1,26 @@
+name: ios_build
+on:
+  pull_request:
+    branches:
+      [ master ]
+  workflow_dispatch:
+
+jobs:
+  build_artifacts_ios:
+    name: ios_build
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '2.5.3'
+    - run: flutter pub get
+    - run: flutter test
+    - run: flutter build ios --release --no-codesign
+    - name: Archive Production Artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: ios_build
+        path: build/ios/iphoneos/Runner.app
+        
+      
